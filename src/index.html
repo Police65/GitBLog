@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitBlog</title>
+
+    <!-- <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"
+      rel="stylesheet"
+    /> -->
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/css/main.ad49aa9b.css"
+    />
+
+    <!-- Dark mode -->
+    <script>
+      // js para dark mode
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+
+    <!-- Dark mode -->
+
+
+    <style>
+		.highlight {
+			background-color: #201c1c;
+			border: 10px solid rgb(61, 60, 60);
+			padding: 15px;
+			border-radius: 5px;
+      
+		}
+	</style>
+  </head>
+  <body>
+    <!--inicio-->
+    <div class="bg-white dark:bg-gray-800">
+      <nav
+        class="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
+      >
+        <div
+          class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+        >
+          <a href="#" class="flex items-center">
+            <img
+              src="https://flowbite.com/docs/images/logo.svg"
+              class="h-8 mr-3"
+              alt="Flowbite Logo"
+            />
+            <span
+              class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+              >Police65</span
+            >
+          </a>
+          <button
+            data-collapse-toggle="navbar-solid-bg"
+            type="button"
+            class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-solid-bg"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-6 h-6"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
+            <ul
+              class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700"
+            >
+              <li>
+                <!-- Boton dark mode -->
+                <button
+                  id="theme-toggle"
+                  type="button"
+                  class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+                >
+                  <svg
+                    id="theme-toggle-dark-icon"
+                    class="hidden w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                    ></path>
+                  </svg>
+                  <svg
+                    id="theme-toggle-light-icon"
+                    class="hidden w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+                <!-- Fin de dark mode boton -->
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                  aria-current="page"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <section class="bg-white dark:bg-gray-900">
+        <div
+          class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16"
+        >
+          <div class="flex flex-col justify-center">
+            <h1
+              class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+            >
+              Curso de GIT y GITHUB desde CERO para PRINCIPIANTES
+            </h1>
+            <p
+              class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400"
+            >
+              Si alguna vez te has preguntado cómo llevar un control eficiente
+              de tus proyectos de desarrollo de software o colaborar de manera
+              fluida en equipos de programación, estás en el lugar adecuado. En
+              este blog, exploraremos el maravilloso mundo de Git y te
+              enseñaremos los comandos básicos necesarios para aprovechar al
+              máximo este sistema de control de versiones.
+              <br />
+              <br />
+              Git se ha convertido en una herramienta esencial para los
+              desarrolladores, permitiéndoles rastrear cambios, colaborar con
+              otros programadores y mantener un historial completo de su
+              trabajo. Con una curva de aprendizaje inicial, dominar los
+              comandos básicos de Git abrirá un mundo de posibilidades y
+              mejorará tu flujo de trabajo como desarrollador.
+              <br />
+              <br />
+              En este blog, te guiaremos paso a paso a través de los conceptos
+              fundamentales de Git y te enseñaremos cómo inicializar un
+              repositorio, hacer commits, gestionar ramas y mucho más. Ya sea
+              que estés empezando desde cero o quieras reforzar tus
+              conocimientos existentes, este curso te proporcionará los
+              fundamentos necesarios para convertirte en un experto en Git.
+              <br />
+              <br />
+              ¡Prepárate para sumergirte en el fascinante universo de Git y
+              descubrir cómo estos comandos básicos pueden impulsar tu
+              eficiencia y productividad como desarrollador!.
+              <br />
+              <br />
+            </p>
+            <div
+              class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4"
+            >
+              <a
+                href="https://github.com/Police65"
+                class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+              >
+                Visita mi GitHub
+                <svg
+                  aria-hidden="true"
+                  class="ml-2 -mr-1 w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div>
+            <iframe
+              class="mx-auto w-full lg:max-w-xl h-64 rounded-lg sm:h-96 shadow-xl"
+              src="https://www.youtube.com/embed/3GymExBkKjE"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+      <!--segunda seccion-->
+      <section class="bg-white dark:bg-gray-900">
+        <div
+          class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16"
+        >
+          <div class="flex flex-col justify-center">
+            <h1
+              class="mb-3 text-1xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-4xl dark:text-white"
+            >
+              Comandos basicos <br />
+              Primer paso para usar la Git Bash
+            </h1>
+            <p
+              class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400"
+            >
+              Git Bash es una terminal que ofrece una interfaz de línea de
+              comandos similar a la de Unix en sistemas Windows. Además de
+              trabajar con Git, también puedes utilizar Git Bash para realizar
+              tareas en tu sistema de archivos, incluyendo la búsqueda y
+              localización de carpetas. <br /><br /><br />
+
+              Para inciar un proyecto, primero debes localizar la carpeta del
+              proyecto, puedes usar el comando "cd"
+            </p>
+
+            <figure class="max-w-lg">
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="/img/Inicializar proyecto.png"
+                alt="image description"
+              />
+              <figcaption
+                class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400"
+              >
+                Ejemplo
+              </figcaption>
+            </figure>
+            <h1
+              class="mb-3 text-1xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-4xl dark:text-white"
+            >
+              <br /><br /><br />
+              Inicializar
+            </h1>
+            <figure class="max-w-lg">
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="/img/GitStatus.png"
+                alt="image description"
+              />
+              <figcaption
+                class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400"
+              >
+                Ejemplo
+              </figcaption>
+            </figure>
+            <p
+              class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400"
+              >
+              El comando para incializar es 
+              <div class="section-content">
+              <pre><code class="highlight text-green-500" >git init⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</code></p></pre>
+            </div>
+            <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+            <br><br><br>
+              una vez realizado este comando, se creara en el proyecto una carpeta llamada ".git" esta carpeta se recomienda no tocar <br> <br>
+          Dentro de la carpeta ".git" se almacena el historial completo de commits, las ramas y etiquetas, los metadatos de los archivos y otras configuraciones específicas del repositorio. Además, también contiene los objetos de Git, que son los blobs (contenidos de archivos), árboles (estructura de directorios) y commits que representan el estado y los cambios en el repositorio a lo largo del tiempo.
+<br><br>
+Es importante destacar que la carpeta ".git" y su contenido son vitales para el correcto funcionamiento de Git. Modificar o eliminar archivos dentro de esta carpeta puede provocar daños irreversibles en el repositorio y la pérdida de datos. Por lo tanto, se recomienda no manipular directamente el contenido de la carpeta ".git" a menos que se tenga un conocimiento profundo de cómo funciona Git internamente.</p> 
+
+            <h1
+              class="mb-3 text-1xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-4xl dark:text-white"
+            >
+              
+              Añadir archivos al commit
+            </h1>
+<p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+            
+          Antes de realizar un commit, si compruebas con <div class="section-content">
+              <pre><code class="highlight text-green-500" >git status⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</code></pre>
+            </div>
+           <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400"> <br><br>Git te indicara que aun no has realizado ningun commit, y te mostrara los archivos que esten dentro del commit, a su vez tambien los archivos modificados o no añadidos al commit (Por defecto los commit son en la rama en la que te encuentres)
+          </p></p>
+
+
+<p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+            
+          Para añadir los archivos que desees al commit, puedes realizar el comando <div class="section-content">
+              <pre><code class="highlight text-green-500" >git add (archivo o directorio)⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</code></pre>
+            </div>
+        </p>
+        <br><br><br>
+
+<figure class="max-w-lg">
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="/img/GitStatus_GitAdd.png"
+                alt="image description"
+              />
+              <figcaption
+                class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400"
+              >
+                Ejemplo
+              </figcaption>
+            </figure>
+
+
+          </div>
+        </div>
+      </section>
+    </div>
+    <!--cierre del div inicial-->
+    <!-- Esto es otra wea del tailwind -->
+    <script src="/flowbite.min.js"></script>
+    <!-- script del boton de dark mode -->
+    <script>
+      var themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      var themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
+
+      // Change the icons inside the button based on previous settings
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        themeToggleLightIcon.classList.remove("hidden");
+      } else {
+        themeToggleDarkIcon.classList.remove("hidden");
+      }
+
+      var themeToggleBtn = document.getElementById("theme-toggle");
+
+      themeToggleBtn.addEventListener("click", function () {
+        // toggle icons inside button
+        themeToggleDarkIcon.classList.toggle("hidden");
+        themeToggleLightIcon.classList.toggle("hidden");
+
+        // if set via local storage previously
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+
+          // if NOT set via local storage previously
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      });
+    </script>
+
+    <!-- fin del script de dark mode -->
+  </body>
+</html>
